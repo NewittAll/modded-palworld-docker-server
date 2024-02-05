@@ -5,7 +5,7 @@ LABEL Version="1.0"
 LABEL Description="A modded PalWorld server using Proton based on peeopturtle's upload https://github.com/peepoturtle/palworld-docker-proton-server"
 
 # Install required programs
-RUN apt-get update && apt-get install -y procps xdg-user-dirs wget unzip sed gosu python3 libfreetype6 \
+RUN apt-get update && apt-get install -y procps xdg-user-dirs wget unzip sed gosu python3 libfreetype6 cron \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -49,9 +49,10 @@ USER steam
 EXPOSE 8211/udp 25575/tcp
 
 # Copy files over
-COPY --chown=steam:steam --chmod=755 ./docker/docker-entrypoint.sh ./scripts/*.sh /palworld/Scripts
+COPY --chown=steam:steam --chmod=755 ./scripts/*.sh /palworld/Scripts
+COPY --chown=steam:steam --chmod=775 ./scripts/crontab /etc/cron.d/crontab
 
 ADD mods /palworld/Downloads
 ADD signatures /palworld/Downloads
 
-ENTRYPOINT ["/palworld/Scripts/docker-entrypoint.sh"]
+ENTRYPOINT ["/palworld/Scripts/init.sh"]
