@@ -1,4 +1,4 @@
-# A docker container to run Palworld's Windows dedicated server
+# A docker container that runs a dedicated modded Steam Proton PalWorld server.
 
 since most mods for palworld uses UE4SS and UE4SS only supports windows; using this docker setup will allow you to run the windows server under linux (using proton)
 
