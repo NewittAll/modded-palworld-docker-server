@@ -54,4 +54,4 @@ COPY --chown=steam:steam --chmod=755 ./docker/docker-entrypoint.sh ./scripts/*.s
 ADD mods /palworld/Downloads
 ADD signatures /palworld/Downloads
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/palworld/Scripts/docker-entrypoint.sh"]
