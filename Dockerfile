@@ -5,7 +5,7 @@ LABEL Version="1.0"
 LABEL Description="A modded PalWorld server using Proton based on peeopturtle's upload https://github.com/peepoturtle/palworld-docker-proton-server"
 
 # Install required programs
-RUN apt-get update && apt-get install -y procps xdg-user-dirs wget unzip sed gosu python3 libfreetype6 cron \
+RUN apt-get update && apt-get install -y procps xdg-user-dirs wget unzip sed gosu python3 libfreetype6 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -50,8 +50,10 @@ EXPOSE 8211/udp 25575/tcp
 
 # Copy files over
 COPY --chown=steam:steam --chmod=755 ./scripts/*.sh /palworld/Scripts
+COPY --chown=steam:steam --chmod=755 
 COPY --chown=steam:steam --chmod=775 ./scripts/crontab /etc/cron.d/crontab
 
+ADD crontab /palworld/Scripts/crontab
 ADD mods /palworld/Downloads
 ADD signatures /palworld/Downloads
 

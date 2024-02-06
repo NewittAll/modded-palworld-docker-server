@@ -8,4 +8,4 @@
 # *  *  *  *  *  user command to be executed
 # WARNING : the container timezone is maybe not your current timezone
 #           You can sync them with option -v /etc/localtime:/etc/localtime:ro or -e "TZ=UTC"
-0 * * * * /app/bin/backup.sh
+0 24 * * * /app/bin/backup.sh
