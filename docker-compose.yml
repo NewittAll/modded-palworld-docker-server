@@ -3,11 +3,9 @@ services:
   palworld:
     restart: always
     container_name: palworld
-    image: palserver-proton 
-    volumes:
-      - ./server:/app
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/machine-id:/etc/machine-id:ro
+    image: modded-palworld-docker-server
+    env_file:
+      - ./.env
     environment:
       - SERVER_NAME=${SERVER_NAME}
       - PORT=${PORT}
@@ -18,3 +16,4 @@ services:
       - default
     ports:
       - "8211:8211/udp"
+      - "25575:25575/tcp"
