@@ -1,7 +1,7 @@
 #!/bin/bash
 whoami
 ls -lta /
-ls -lta /palworld/Scripts
+ls -lta /palworld/Downloads
 
 # Declare directories
 gamePath=/palworld
@@ -23,7 +23,7 @@ function installServer() {
 	sed -i 's/GuiConsoleEnabled = 1/GuiConsoleEnabled = 0/' "$gamePath"/Pal/Binaries/Win64/UE4SS-settings.ini
 	sed -i 's/GuiConsoleVisible = 1/GuiConsoleVisible = 0/' "$gamePath"/Pal/Binaries/Win64/UE4SS-settings.ini
 
-	mv /palworld/Downloads/UE4SS_Signatures "$gamePath"/Pal/Binaries/Win64/Mods
+	mv /palworld/Downloads/UE4SS_Signatures "$gamePath"/Pal/Binaries/Win64
 }
 # Function to start supercronic and load crons from cronlist
 function setupCron() {

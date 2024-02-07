@@ -1,3 +1,2 @@
-server/PalServer
-server/backups
 .env
+.gitignore

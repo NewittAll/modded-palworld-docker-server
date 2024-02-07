@@ -51,7 +51,7 @@ EXPOSE 8211/udp 25575/tcp
 # Copy files over
 COPY --chown=steam:steam --chmod=755 ./scripts/*.sh /palworld/Scripts
 COPY --chown=steam:steam --chmod=755 /init.sh /
-ADD mods /palworld/Downloads
-ADD signatures /palworld/Downloads
+ADD --chown=steam:steam mods /palworld/Downloads
+ADD --chown=steam:steam signatures /palworld/Downloads
 
 ENTRYPOINT ["/init.sh"]
