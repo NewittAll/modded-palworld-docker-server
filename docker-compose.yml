@@ -6,12 +6,6 @@ services:
     image: modded-palworld-docker-server
     env_file:
       - ./.env
-    environment:
-      - SERVER_NAME=${SERVER_NAME}
-      - PORT=${PORT}
-      - PLAYERS=${PLAYERS}
-      - SERVER_PASSWORD=${SERVER_PASSWORD}
-      - NO_MULTITHREADING=${NO_MULTITHREADING}
     networks:
       - default
     ports:
