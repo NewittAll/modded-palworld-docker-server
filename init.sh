@@ -2,14 +2,14 @@
 # Declare directories
 serverDir=/palworld
 
-
 function installServer() {
 	echo -e "\033[32;1m>>> Doing a fresh install of the PalWorld Server <<<\033[0m"
 	if [[ -n $WEBHOOK_ENABLED ]] && [[ $WEBHOOK_ENABLED == "true" ]]; then
 	    send_webhook_notification "Installing server" "Server is being installed" "$WEBHOOK_INFO_COLOR"
 	fi
+	set -x
 	${STEAMCMD} +@sSteamCmdForcePlatformType windows +force_install_dir "$serverDir" +login anonymous +app_update 2394010 validate +quit
-
+	set +x
 	wget -P "$serverDir"/Pal/Binaries/Win64 https://github.com/UE4SS-RE/RE-UE4SS/releases/download/v2.5.2/UE4SS_Xinput_v2.5.2.zip \
 	    && unzip -q "$serverDir"/Pal/Binaries/Win64/UE4SS_Xinput_v2.5.2.zip -d "$serverDir"/Pal/Binaries/Win64 \
 	    && rm "$serverDir"/Pal/Binaries/Win64/UE4SS_Xinput_v2.5.2.zip \

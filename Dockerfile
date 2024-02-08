@@ -25,12 +25,13 @@ RUN wget https://github.com/gorcon/rcon-cli/releases/download/v0.10.3/rcon-0.10.
     && ln -s "/usr/local/bin/rcon" /usr/local/bin/rconcli \
     && rm -Rf rcon-0.10.3-amd64_linux rcon-0.10.3-amd64_linux.tar.gz
 
+WORKDIR /home/steam/.steam/steam
 # Install Proton
-RUN mkdir -p /home/steam/.steam/steam/compatibilitytools.d/
+RUN mkdir -p compatibilitytools.d/
 RUN wget -O - https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton8-28/GE-Proton8-28.tar.gz \
-    | tar -xz -C /home/steam/.steam/steam/compatibilitytools.d/
-RUN mkdir -p /home/steam/.steam/steam/steamapps/compatdata/2394010 
-RUN cp -r /home/steam/.steam/steam/compatibilitytools.d/GE-Proton8-28/files/share/default_pfx /home/steam/.steam/steam/steamapps/compatdata/2394010
+    | tar -xz -C compatibilitytools.d/
+RUN mkdir -p steamapps/compatdata/2394010 
+RUN cp -r compatibilitytools.d/GE-Proton8-28/files/share/default_pfx steamapps/compatdata/2394010
 RUN chown -R steam:steam /home/steam
 
 
@@ -39,12 +40,16 @@ RUN chown -R steam:steam /home/steam
 RUN mkdir -p /palworld/Scripts /palworld/Downloads /palworld/Backups \
     && chown -R steam:steam /palworld
 # Declare enviorment variables
-ENV STEAMCMD=/home/steam/steamcmd/steamcmd.sh \
+ARG APPID=2394010
+
+
+ENV STEAM_COMPAT_CLIENT_INSTALL_PATH="/home/${USER}/.steam/steam" \
     STEAM_COMPAT_DATA_PATH=/home/steam/.steam/steam/steamapps/compatdata/2394010 \
     PROTON=/home/steam/.steam/steam/compatibilitytools.d/GE-Proton8-28/proton \
+    STEAMCMD=/home/steam/steamcmd/steamcmd.sh \
     PUID=1000 \
     PGID=1000
-VOLUME ["/palworld"]
+#VOLUME ["/palworld"]
 USER steam
 EXPOSE 8211/udp 25575/tcp
 

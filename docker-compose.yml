@@ -2,8 +2,9 @@ version: '3.9'
 services:
   palworld:
     restart: always
-    container_name: palworld
+    container_name: modded-palworld
     image: modded-palworld-docker-server
+
     env_file:
       - ./.env
     networks:
