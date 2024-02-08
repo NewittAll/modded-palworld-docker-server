@@ -8,10 +8,10 @@ function installServer() {
 	    send_webhook_notification "Installing server" "Server is being installed" "$WEBHOOK_INFO_COLOR"
 	fi
 	${STEAMCMD} +@sSteamCmdForcePlatformType windows +force_install_dir "$serverDir" +login anonymous +app_update 2394010 validate +quit
-	wget -P "$serverDir"/Pal/Binaries/Win64 https://github.com/UE4SS-RE/RE-UE4SS/releases/download/v2.5.2/UE4SS_Xinput_v2.5.2.zip \
-	    && unzip -q "$serverDir"/Pal/Binaries/Win64/UE4SS_Xinput_v2.5.2.zip -d "$serverDir"/Pal/Binaries/Win64 \
-	    && rm "$serverDir"/Pal/Binaries/Win64/UE4SS_Xinput_v2.5.2.zip \
-	    && rm "$serverDir"/Pal/Binaries/Win64/Readme.md \
+	wget -P "$serverDir"/Pal/Binaries/Win64 https://github.com/UE4SS-RE/RE-UE4SS/releases/download/v3.0.0/UE4SS_v3.0.0.zip \
+	    && unzip -q "$serverDir"/Pal/Binaries/Win64/UE4SS_v3.0.0.zip -d "$serverDir"/Pal/Binaries/Win64 \
+	    && rm "$serverDir"/Pal/Binaries/Win64/UE4SS_v3.0.0.zip \
+	    && rm "$serverDir"/Pal/Binaries/Win64/README.md \
 	    && rm "$serverDir"/Pal/Binaries/Win64/Changelog.md
 
 	# Turn off GuiConsole
