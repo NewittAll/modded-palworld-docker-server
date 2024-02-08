@@ -1,17 +1,13 @@
 #!/bin/bash
 source /init.sh
-source /"$serverDir/Scripts/config.sh"
-
 source /palworld/Scripts/config.sh
 
 # Declare directories
 serverExe="$serverDir/Pal/Binaries/Win64/PalServer-Win64-Test.exe"
 
-
 function startServer() {
-
-    setupEngine
     setupServerSettings
+    installMods
 
     startSettings=""
     if [[ -n $COMMUNITY_SERVER ]] && [[ $COMMUNITY_SERVER == "true" ]]; then
@@ -27,6 +23,7 @@ function startServer() {
     fi
     echo -e "\033[32;1m>>> Starting Palworld Server <<<\033[0m"
     $PROTON run $serverExe $startSettings
+    echo ">>> Palworld server stopping"
 }
 
 function bootManager() {
@@ -35,9 +32,6 @@ function bootManager() {
     if [ ! -f ${serverExe} ]; then
         installServer
     fi
-
-    ls -lta /palworld/Pal
-
     startServer
 }
 

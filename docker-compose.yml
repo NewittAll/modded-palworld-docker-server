@@ -4,7 +4,6 @@ services:
     restart: always
     container_name: modded-palworld
     image: modded-palworld-docker-server
-
     env_file:
       - ./.env
     networks:

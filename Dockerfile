@@ -35,13 +35,9 @@ RUN cp -r compatibilitytools.d/GE-Proton8-28/files/share/default_pfx steamapps/c
 RUN chown -R steam:steam /home/steam
 
 
-
 # Setup directories
 RUN mkdir -p /palworld/Scripts /palworld/Downloads /palworld/Backups \
     && chown -R steam:steam /palworld
-# Declare enviorment variables
-ARG APPID=2394010
-
 
 ENV STEAM_COMPAT_CLIENT_INSTALL_PATH="/home/${USER}/.steam/steam" \
     STEAM_COMPAT_DATA_PATH=/home/steam/.steam/steam/steamapps/compatdata/2394010 \
@@ -56,7 +52,7 @@ EXPOSE 8211/udp 25575/tcp
 # Copy files over
 COPY --chown=steam:steam --chmod=755 ./scripts/*.sh /palworld/Scripts
 COPY --chown=steam:steam --chmod=755 /init.sh /
-COPY --chown=steam:steam --chmod=440 rcon.yaml ./rcon.yaml
+ADD --chown=steam:steam --chmod=440 rcon.yaml /home/steam/steamcmd/rcon.yaml
 ADD --chown=steam:steam mods /palworld/Downloads
 ADD --chown=steam:steam signatures /palworld/Downloads
 
