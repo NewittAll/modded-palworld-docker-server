@@ -17,6 +17,7 @@ function installServer() {
 	# Turn off GuiConsole
 	sed -i 's/GuiConsoleEnabled = 1/GuiConsoleEnabled = 0/' "$serverDir"/Pal/Binaries/Win64/UE4SS-settings.ini
 	sed -i 's/GuiConsoleVisible = 1/GuiConsoleVisible = 0/' "$serverDir"/Pal/Binaries/Win64/UE4SS-settings.ini
+	sed -i 's/GraphicsAPI = opengl/GraphicsAPI = dx11/' "$serverDir"/Pal/Binaries/Win64/UE4SS-settings.ini
 
 	mv "$serverDir"/Downloads/UE4SS_Signatures "$serverDir"/Pal/Binaries/Win64
 }
@@ -41,5 +42,6 @@ function setupCron() {
 
 function installMods() {
 	echo -e "\033[32;1m>>> Installing Mods <<<\033[0m"
-	mv "$serverDir"/Downloads/* "$serverDir"/Pal/Binaries/Win64/Mods
+	mv "$serverDir"/Downloads/dll/* "$serverDir"/Pal/Binaries/Win64/Mods
+	mv "$serverDir"/Downloads/pak/* "$serverDir"/Pal/Content/Paks
 }
