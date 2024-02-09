@@ -253,7 +253,7 @@ function setupServerSettings() {
         fi
         if [[ ! -z ${SERVER_DESCRIPTION+x} ]]; then
             echo "Setting server description to $SERVER_DESCRIPTION"
-            sed -E -i "s/ServerDescription=\"[^\"]*\"/ServerDescription=\"$SERVER_DESCRIPTION\"/" ${windowsDir}/PalWorldSettings.ini
+            sed -E -i "s/ServerDescription=/&\"$SERVER_DESCRIPTION\"/" ${windowsDir}/PalWorldSettings.ini
         fi
         if [[ ! -z ${ADMIN_PASSWORD+x} ]]; then
             echo "Setting server admin password to $ADMIN_PASSWORD"
