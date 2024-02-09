@@ -1,5 +1,5 @@
 # A docker container that runs a dedicated modded Steam Proton PalWorld server.
-Built based on using https://github.com/peepoturtle/palworld-docker-proton-server as a base and uses functions from https://github.com/jammsen/docker-palworld-dedicated-server for back, rcon, webhooks, and server settings setup.
+Built based on using https://github.com/peepoturtle/palworld-docker-proton-server as a base and uses functions from https://github.com/jammsen/docker-palworld-dedicated-server for backup, rcon, webhooks, and server settings setup.
 Most mods for Palworld require UE4SS which only supports Windows; this docker container runs Steam on Proton allowing you host a server with mods.
 
 ## Instructions
