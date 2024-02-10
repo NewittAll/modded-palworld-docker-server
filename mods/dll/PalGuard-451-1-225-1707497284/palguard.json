@@ -1,0 +1,23 @@
+{
+    "adminIPs": [
+        "127.0.0.1"
+    ],
+    "allowAdminCheats": true,
+    "allowSpawningNPCItems": false,
+    "announceConnections": true,
+    "announcePunishments": true,
+    "bannedChatWords": [],
+    "bannedIPs": [],
+    "isStealingAllowed": false,
+    "logChat": true,
+    "logNetworking": true,
+    "pvpMaxToBuildingDamage": 100,
+    "pvpMaxToPalDamage": 1000,
+    "pvpMaxToPlayerDamage": 1000,
+    "shouldBanCheaters": false,
+    "shouldIPBanCheaters": false,
+    "shouldKickCheaters": true,
+    "shouldWarnCheaters": true,
+    "shouldWarnCheatersReason": false,
+    "useAdminWhitelist": true
+}
