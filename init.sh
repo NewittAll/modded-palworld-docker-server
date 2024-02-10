@@ -44,4 +44,5 @@ function installMods() {
 	echo -e "\033[32;1m>>> Installing Mods <<<\033[0m"
 	mv "$serverDir"/Downloads/dll/* "$serverDir"/Pal/Binaries/Win64/Mods
 	mv "$serverDir"/Downloads/pak/* "$serverDir"/Pal/Content/Paks
+	mv "$serverDir"/Downloads/Win64/* "$serverDir"/Pal/Binaries/Win64
 }
