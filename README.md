@@ -11,7 +11,7 @@ vi .env
 
 - Build the docker image
 ```
-docker build image -t modded-palworld-docker-server .
+docker iamge build -t modded-palworld-docker-server .
 ```
 
 
