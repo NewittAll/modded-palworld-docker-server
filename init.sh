@@ -43,7 +43,8 @@ function setupCron() {
 function installMods() {
 	echo -e "\033[32;1m>>> Installing Mods <<<\033[0m"
 	mv "$serverDir"/Downloads/dll/* "$serverDir"/Pal/Binaries/Win64/Mods
-	mv "$serverDir"/Downloads/pak/* "$serverDir"/Pal/Content/Paks
+	mv "$serverDir"/Downloads/Win64/* "$serverDir"/Pal/Binaries/Win64
+	mv "$serverDir"/Downloads/pak/* "$serverDir"/Pal/Content/Paks	
 	sed -i -e '1iPalBoxReorganizedX: 1\' "$serverDir"/Pal/Binaries/Win64/Mods/mods.txt
 	sed -i -e '1iBetterRidingGroundMounts: 1\' "$serverDir"/Pal/Binaries/Win64/Mods/mods.txt
 }
