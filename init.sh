@@ -18,8 +18,6 @@ function installServer() {
 	sed -i 's/GuiConsoleEnabled = 1/GuiConsoleEnabled = 0/' "$serverDir"/Pal/Binaries/Win64/UE4SS-settings.ini
 	sed -i 's/GuiConsoleVisible = 1/GuiConsoleVisible = 0/' "$serverDir"/Pal/Binaries/Win64/UE4SS-settings.ini
 	sed -i 's/GraphicsAPI = opengl/GraphicsAPI = dx11/' "$serverDir"/Pal/Binaries/Win64/UE4SS-settings.ini
-
-	mv "$serverDir"/Downloads/UE4SS_Signatures "$serverDir"/Pal/Binaries/Win64
 }
 
 # Function to update the gameserver
