@@ -54,6 +54,5 @@ COPY --chown=steam:steam --chmod=755 ./scripts/*.sh /palworld/Scripts
 COPY --chown=steam:steam --chmod=755 /init.sh /
 ADD --chown=steam:steam --chmod=440 rcon.yaml /home/steam/steamcmd/rcon.yaml
 ADD --chown=steam:steam mods /palworld/Downloads
-ADD --chown=steam:steam signatures /palworld/Downloads
 
 ENTRYPOINT ["/palworld/Scripts/start.sh"]
