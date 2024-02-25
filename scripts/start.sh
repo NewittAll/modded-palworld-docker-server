@@ -7,7 +7,7 @@ serverExe="$serverDir/Pal/Binaries/Win64/PalServer-Win64-Test.exe"
 
 function startServer() {
     setupServerSettings
-    installMods
+#    installMods
 
     startSettings=""
     if [[ -n $COMMUNITY_SERVER ]] && [[ $COMMUNITY_SERVER == "true" ]]; then
