@@ -18,9 +18,9 @@ function startServer() {
         echo "Setting Multi-Core-Enchancements to enabled"
         startSettings="$startSettings -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS"
     fi
-    if [[ -n $WEBHOOK_ENABLED ]] && [[ $WEBHOOK_ENABLED == "true" ]]; then
-        send_start_notification
-    fi
+#    if [[ -n $WEBHOOK_ENABLED ]] && [[ $WEBHOOK_ENABLED == "true" ]]; then
+#        send_start_notification
+#    fi
     echo -e "\033[32;1m>>> Starting Palworld Server <<<\033[0m"
     $PROTON run $serverExe $startSettings
     echo ">>> Palworld server stopping"
